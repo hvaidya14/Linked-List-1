@@ -55,3 +55,39 @@ public class Solution {
         return fast;
     }
 }
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    ListNode resultHead = null;
+    public ListNode reverseList(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        reverseList(head, null);
+        return resultHead;
+    }
+
+    private void reverseList(ListNode curr, ListNode prev) {
+
+        if (curr.next == null) {
+            resultHead = curr;
+            curr.next = prev;
+            return;
+        }
+        ListNode temp = curr.next;
+        curr.next = prev;
+        prev=curr;
+        curr=temp;
+        reverseList(curr, prev);
+        return;
+    }
+}
