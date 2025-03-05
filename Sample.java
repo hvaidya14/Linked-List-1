@@ -136,8 +136,8 @@ class Solution {
 
 class Solution  {
     public List<int[]> optimal(List<int[]> a , List<int[]> b) {
-        Collection.sort(a, (i,j) -> (i[1] - j[1]));
-        Collection.sort(b, (i,j) -> (i[1] - j[1]));
+        Collections.sort(a, (i,j) -> Integer.compare(i[1], j[i]));
+        Collections.sort(b, (i,j) -> Integer.compare(i[1], j[i]));
         List<int[]> result = new ArrayList<>();
         int low = 0;
         int high = b.size()-1;
