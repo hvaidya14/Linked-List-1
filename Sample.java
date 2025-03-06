@@ -133,29 +133,3 @@ class Solution {
         return head;
     }
 }
-
-class Solution  {
-    public List<int[]> optimal(List<int[]> a , List<int[]> b) {
-        Collections.sort(a, (i,j) -> Integer.compare(i[1], j[i]));
-        Collections.sort(b, (i,j) -> Integer.compare(i[1], j[i]));
-        List<int[]> result = new ArrayList<>();
-        int low = 0;
-        int high = b.size()-1;
-        int prevsum =0;
-        while (low < a.size() && high >= 0) {
-            int[] temp1 = new int[2];
-            int[] temp2 = new int[2];
-            temp1 = a.get(low);
-            temp2 = b.get(high);
-            int sum = temp1[1] + temp2[1];
-            if (prevsum <= sum && sum <= target) {
-                result.remove(result.size()-1);
-                result.add(new []{temp1[0], temp2[0]});
-                prev = sum;
-                low++;
-            } else if (sum > target) {
-                high--;
-            }
-        }
-    }
-}
