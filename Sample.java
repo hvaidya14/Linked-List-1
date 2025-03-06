@@ -148,7 +148,7 @@ class Solution  {
             temp1 = a.get(low);
             temp2 = b.get(high);
             int sum = temp1[1] + temp2[1];
-            if (prevsum < sum && sum <= target) {
+            if (prevsum <= sum && sum <= target) {
                 result.remove(result.size()-1);
                 result.add(new []{temp1[0], temp2[0]});
                 prev = sum;
